@@ -16,15 +16,18 @@ export default function Favorites() {
     const dispatch = useDispatch();
     const favorites = useSelector((state) => state.WeatherReducer.favourites);
     const key = useSelector((state) => state.WeatherReducer.key);
-    console.log("d"+favorites)
+    const date = useSelector((state) => state.WeatherReducer.date);
+    const temperature = useSelector((state) => state.WeatherReducer.temperature);
+    const text = useSelector((state) => state.WeatherReducer.text);
+   
 
     const toHomePage = async (item) => {
         debugger
        
-       alert(item.name)
-       alert(item.weatherText)
+      //set the current values to cityName and waetherText
        dispatch(actions.setCurrentCity(item.name));
        dispatch(actions.setWeatherText(item.weatherText));
+       //back to honePage
        history.push("/Home");
         
 
